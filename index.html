@@ -30,14 +30,14 @@
             </nav>
             <ul class="list cont-list">
                 <li class="cont-list-item">
-                    <a href="mailto:info@devstudio.com" class="link nav-list-link cont-list-link">
+                    <a href="mailto:info@devstudio.com" class="link cont-list-link">
                         <svg class="cont-list-icon" width="16" height="12">
                             <use href="./images/sprite.svg#email"></use>
                         </svg>
                         info@devstudio.com</a>
                 </li>
                 <li class="cont-list-item">
-                    <a href="tel:+380961111111" class="link nav-list-link cont-list-link">
+                    <a href="tel:+380961111111" class="link cont-list-link">
                         <svg class="cont-list-icon" width="10" height="16">
                             <use href="./images/sprite.svg#phone"></use>
                         </svg>
@@ -51,7 +51,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="main-title">Ефективні рішення для вашого бізнесу</h1>
-                <button type="button" class="btn">Замовити послугу</button>
+                <button type="button" class="btn" data-modal-open>Замовити послугу</button>
             </div>
         </section>
 
@@ -106,12 +106,21 @@
                 <ul class="list work-list">
                     <li class="work-list-item">
                         <img src="./images/computerwork.jpg" alt="Праця на комп'ютері" width="370" height="294">
+                        <div class="work-list-box">
+                            <p class="work-list-text">Десктопні додатки</p>
+                        </div>
                     </li>
                     <li class="work-list-item">
                         <img src="./images/phonework.jpg" alt="Праця на телефоні" width="370" height="294">
+                        <div class="work-list-box">
+                            <p class="work-list-text">Мобільні додатки</p>
+                        </div>
                     </li>
                     <li class="work-list-item">
                         <img src="./images/padwork.jpg" alt="Праця на планшеті" width="370" height="294">
+                        <div class="work-list-box">
+                            <p class="work-list-text">Дизайнерські рішення</p>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -381,5 +390,17 @@
              </div>
         </div>
     </footer>
+    
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="bitton" class="modal-close-btn" data-modal-close>
+                <svg class="modal-close-icon" width="18" height="18">
+                    <use href="./images/sprite.svg#close-icon"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
 </body>
 </html>

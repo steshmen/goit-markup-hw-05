@@ -4,12 +4,14 @@
     --secondary-txt-color: #757575;
     --logo-txt-color: #000000;
     --accent-color: #2196F3;
+    --icon-color: #AFB1B8;
     --btn-active-color: #188CE8;
     --link-foot-color: rgba(255, 255, 255, 0.6);
     --primary-bg-color: #FFFFFF;
-    --icon-color: #AFB1B8;
     --secondary-bg-color: #2F303A;
     --team-bg-color: #F5F4FA;
+    --work-bg-color: rgba(47, 48, 58, 0.8);
+    --modal-bg-color:  rgba(0, 0, 0, 0.2);
 }
 body {
     color: var(--primary-txt-color);
@@ -92,18 +94,33 @@ address {
 }
 .nav-list-item:not(:last-child) {
     margin-right: 50px;
+    position: relative;
 }
 .nav-list-link {
     color: var(--primary-txt-color);
     font-weight: 500;
     line-height: 1.14;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 .nav-list-link:hover, .nav-list-link:focus {
     color: var(--accent-color);
 }
-.nav-list-link.active-page {
+.active-page {
     color: var(--accent-color);
+}
+.active-page::after {
+    content: "";
+    background-color: var(--accent-color);
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    margin-top: 27px;
 }
 .cont-list {
    display: flex;
@@ -116,6 +133,10 @@ address {
     color: var(--secondary-txt-color);
     display: flex;
     align-items: center;
+    font-weight: 500;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cont-list-link:hover, .cont-list-link:focus {
     color: var(--accent-color);
@@ -221,6 +242,26 @@ address {
     display: flex;
     justify-content: space-between;
 }
+.work-list-item {
+    position: relative;
+}
+.work-list-box {
+    position: absolute;
+    bottom: 0px;
+    padding: 27px 95px;
+    width: 100%;
+    background-color: var(--work-bg-color);
+    padding: 27px, 107px;
+}
+.work-list-text {
+    color: var(--primary-bg-color);
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+    text-align: center;
+    
+    
+}
 
 .team {
     background-color: var(--team-bg-color);
@@ -236,6 +277,7 @@ address {
     flex-basis: calc((100% - 120px) / 4);
     margin-left: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-list-item:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
@@ -276,9 +318,11 @@ address {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-icon {
-    fill: var(--icon-color)
+    fill: var(--icon-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-link:hover, 
 .social-list-link:focus {
@@ -317,9 +361,12 @@ address {
     align-items: center;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 .clients-list-icon {
     fill: #AFB1B8;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list-link:hover, 
 .clients-list-link:focus {
@@ -349,6 +396,9 @@ address {
     padding: 8px 20px;
     border: none;
     border-radius: 4px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .port-btn:hover, .port-btn:focus {
     color: var(--primary-bg-color);
@@ -377,9 +427,33 @@ address {
 }
 .port-list-link {
     display: block;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .port-list-link:hover, .port-list-link:focus {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.port-list-overlay-box {
+    position: relative;
+    overflow: hidden;
+}
+.port-list-overlay {
+    background-color: rgba(33, 150, 243, 0.9);
+    padding: 63px 24px;
+    font-size: 18px;
+    line-height: 1.56;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.port-list-item:hover .port-list-overlay {
+    transform: translateY(0);
+}
+.port-overlay-text {
+    color: var(--primary-bg-color);
 }
 .port-list-box {
     padding: 20px 24px;
@@ -455,6 +529,7 @@ address {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .foot-social-link:hover,
 .foot-social-link:focus {
@@ -462,4 +537,45 @@ address {
 }
 .foot-social-icon {
     fill: var(--primary-bg-color);
+}
+
+/* modal */
+.backdrop {
+    background-color: var(--modal-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.modal {
+    width: 528px;
+    height: 580px;
+    border-radius: 4px;
+    background-color: var(--primary-bg-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background-color: var(--primary-bg-color);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
