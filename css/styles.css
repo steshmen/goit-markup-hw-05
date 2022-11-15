@@ -449,7 +449,7 @@ address {
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
-.port-list-item:hover .port-list-overlay {
+.port-list-link:hover .port-list-overlay {
     transform: translateY(0);
 }
 .port-overlay-text {
