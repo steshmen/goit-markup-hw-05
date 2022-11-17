@@ -121,6 +121,8 @@ address {
     top: 18px;
     left: 0;
     margin-top: 27px;
+    animation: animationScale 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    animationOpacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cont-list {
    display: flex;
@@ -144,6 +146,7 @@ address {
 .cont-list-icon {
     margin-right: 10px;
     fill: var(--secondary-txt-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .cont-list-link:hover .cont-list-icon,
 .cont-list-link:focus .cont-list-icon {
@@ -564,6 +567,24 @@ address {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: animationScale 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    animationOpacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes animationScale {
+    0% {
+        transform: scale(0);
+    }
+    100% { 
+        transform: scale(1.0);
+    }
+}
+@keyframes animationOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
 }
 .modal-close-btn {
     position: absolute;
@@ -579,3 +600,4 @@ address {
     justify-content: center;
     align-items: center;
 }
+/*  */
